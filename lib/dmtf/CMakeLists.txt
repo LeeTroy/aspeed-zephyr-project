@@ -10,7 +10,7 @@ target_include_directories(dmtf_libspdm INTERFACE
 	libspdm/include/hal
 	libspdm/os_stub
 	libspdm/os_stub/include
-	os_stub/cryptlib_mbedtls3
+	libspdm/os_stub/cryptlib_mbedtls
 )
 
 zephyr_library()
@@ -22,30 +22,33 @@ if (CONFIG_DMTF_LIBSPDM_CONFIG_FILE)
 endif()
 
 zephyr_library_sources(
-	os_stub/cryptlib_mbedtls3/cipher/aead_aes_gcm.c
-	os_stub/cryptlib_mbedtls3/cipher/aead_chacha20_poly1305.c
-	os_stub/cryptlib_mbedtls3/cipher/aead_sm4_gcm.c
-	os_stub/cryptlib_mbedtls3/der/der.c
-	os_stub/cryptlib_mbedtls3/hash/sha.c
-	os_stub/cryptlib_mbedtls3/hash/sha3.c
-	os_stub/cryptlib_mbedtls3/hash/sm3.c
-	os_stub/cryptlib_mbedtls3/hmac/hmac_sha.c
-	os_stub/cryptlib_mbedtls3/hmac/hmac_sha3.c
-	os_stub/cryptlib_mbedtls3/hmac/hmac_sm3.c
-	os_stub/cryptlib_mbedtls3/kdf/hkdf_sha.c
-	os_stub/cryptlib_mbedtls3/kdf/hkdf_sha3.c
-	os_stub/cryptlib_mbedtls3/kdf/hkdf_sm3.c
-	os_stub/cryptlib_mbedtls3/pem/pem.c
-	os_stub/cryptlib_mbedtls3/pk/ec.c
-	os_stub/cryptlib_mbedtls3/pk/ecd.c
-	os_stub/cryptlib_mbedtls3/pk/dh.c
-	os_stub/cryptlib_mbedtls3/pk/sm2.c
-	os_stub/cryptlib_mbedtls3/pk/rsa_basic.c
-	os_stub/cryptlib_mbedtls3/pk/rsa_ext.c
-	os_stub/cryptlib_mbedtls3/pk/x509.c
-	os_stub/cryptlib_mbedtls3/rand/rand.c
-	os_stub/cryptlib_mbedtls3/sys_call/mem_allocation.c
-	os_stub/cryptlib_mbedtls3/sys_call/crt_wrapper_host.c
+	crt_wrapper_host.c         
+	libspdm/os_stub/debuglib/debuglib.c
+
+	libspdm/os_stub/cryptlib_mbedtls/hash/sha3.c                         
+	libspdm/os_stub/cryptlib_mbedtls/hash/sha.c                          
+	libspdm/os_stub/cryptlib_mbedtls/hash/sm3.c                          
+	libspdm/os_stub/cryptlib_mbedtls/der/der.c                           
+	libspdm/os_stub/cryptlib_mbedtls/sys_call/mem_allocation.c           
+	libspdm/os_stub/cryptlib_mbedtls/pk/x509.c                           
+	libspdm/os_stub/cryptlib_mbedtls/pk/ecd.c                            
+	libspdm/os_stub/cryptlib_mbedtls/pk/dh.c                             
+	libspdm/os_stub/cryptlib_mbedtls/pk/ec.c                             
+	libspdm/os_stub/cryptlib_mbedtls/pk/rsa_ext.c                        
+	libspdm/os_stub/cryptlib_mbedtls/pk/rsa_basic.c                      
+	libspdm/os_stub/cryptlib_mbedtls/pk/sm2.c                            
+	libspdm/os_stub/cryptlib_mbedtls/cipher/aead_sm4_gcm.c               
+	libspdm/os_stub/cryptlib_mbedtls/cipher/aead_aes_gcm.c               
+	libspdm/os_stub/cryptlib_mbedtls/cipher/aead_chacha20_poly1305.c     
+	libspdm/os_stub/cryptlib_mbedtls/kdf/hkdf_sha.c                      
+	libspdm/os_stub/cryptlib_mbedtls/kdf/hkdf_sha3.c                     
+	libspdm/os_stub/cryptlib_mbedtls/kdf/hkdf_sm3.c                      
+	libspdm/os_stub/cryptlib_mbedtls/hmac/hmac_sm3.c                     
+	libspdm/os_stub/cryptlib_mbedtls/hmac/hmac_sha.c                     
+	libspdm/os_stub/cryptlib_mbedtls/hmac/hmac_sha3.c                    
+	libspdm/os_stub/cryptlib_mbedtls/internal_crypt_lib.h                
+	libspdm/os_stub/cryptlib_mbedtls/pem/pem.c                           
+	libspdm/os_stub/cryptlib_mbedtls/rand/rand.c                         
 	)
 
 # spdm common library

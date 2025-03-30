@@ -1,0 +1,5 @@
+menu "Systems and OS Services in Aspeed Zephyr Project"
+
+rsource "mctp/Kconfig"
+
+endmenu
